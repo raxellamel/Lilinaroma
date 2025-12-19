@@ -245,10 +245,74 @@ function updateCartUI() {
     cartTotalElement.textContent = formatCurrency(total);
 }
 
+// Voucher State
+let discount = 0;
+let appliedVoucherCode = null;
+const validVouchers = ["zura", "musgun", "Amell", "ramell", "Lapiww", "kapiww"];
+
+// Apply Voucher
+function applyVoucher() {
+    const input = document.getElementById('voucher-input');
+    const message = document.getElementById('voucher-message');
+    const btn = document.getElementById('btn-apply-voucher');
+    const code = input.value.trim();
+
+    if (!code) return;
+
+    // Reset state
+    message.classList.remove('hidden', 'text-green-600', 'text-red-500');
+    
+    if (validVouchers.includes(code)) {
+        if (appliedVoucherCode === code) {
+            message.textContent = "Voucher already applied!";
+            message.classList.add('text-blue-500');
+            return;
+        }
+
+        discount = 0.20; // 20%
+        appliedVoucherCode = code;
+        
+        message.textContent = `Voucher "${code}" applied! You get 20% off.`;
+        message.classList.add('text-green-600');
+        
+        // Visual feedback
+        input.classList.add('border-green-500', 'bg-green-50');
+        btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+        btn.classList.remove('bg-gray-800');
+        btn.classList.add('bg-green-600');
+        
+        updateCheckoutSummary();
+    } else {
+        discount = 0;
+        appliedVoucherCode = null;
+        
+        message.textContent = "Invalid voucher code.";
+        message.classList.add('text-red-500');
+        
+        // Visual feedback
+        input.classList.remove('border-green-500', 'bg-green-50');
+        input.classList.add('border-red-500', 'bg-red-50');
+        btn.innerHTML = 'Apply';
+        btn.classList.add('bg-gray-800');
+        btn.classList.remove('bg-green-600');
+        
+        updateCheckoutSummary();
+    }
+}
+
 // Update Checkout Summary
 function updateCheckoutSummary() {
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    checkoutSubtotalElement.textContent = formatCurrency(total);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const discountAmount = subtotal * discount;
+    const total = subtotal - discountAmount;
+
+    checkoutSubtotalElement.textContent = formatCurrency(subtotal);
+    
+    const discountElement = document.getElementById('checkout-discount');
+    if (discountElement) {
+        discountElement.textContent = `-${formatCurrency(discountAmount)}`;
+    }
+    
     checkoutTotalElement.textContent = formatCurrency(total);
 }
 
@@ -265,6 +329,25 @@ function processPayment() {
         setTimeout(() => {
             showNotification('Pembayaran Berhasil!', 'Terima kasih atas pesanan Anda.', 'bi-check-circle-fill', 'text-blue-600', 'bg-blue-100');
             cart = [];
+            
+            // Reset Voucher
+            discount = 0;
+            appliedVoucherCode = null;
+            const voucherInput = document.getElementById('voucher-input');
+            const voucherMessage = document.getElementById('voucher-message');
+            const voucherBtn = document.getElementById('btn-apply-voucher');
+            
+            if(voucherInput) {
+                voucherInput.value = '';
+                voucherInput.classList.remove('border-green-500', 'bg-green-50', 'border-red-500', 'bg-red-50');
+            }
+            if(voucherMessage) voucherMessage.classList.add('hidden');
+            if(voucherBtn) {
+                voucherBtn.innerHTML = 'Apply';
+                voucherBtn.classList.add('bg-gray-800');
+                voucherBtn.classList.remove('bg-green-600');
+            }
+
             updateCartUI();
             toggleCheckout();
             floatingCart.classList.add('hidden');
