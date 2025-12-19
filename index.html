@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilis Amelia - Lilin Aroma</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon & Open Graph -->
+    <link rel="icon" type="image/jpeg" href="assets/img/web-icon.jpeg">
+    <meta property="og:image" content="assets/img/web-icon.jpeg">
+    <meta property="og:title" content="Lilis Amelia - Lilin Aroma">
+    <meta property="og:description" content="Koleksi Lilin Aroma Premium untuk suasana yang lebih tenang dan nyaman.">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        glass: 'rgba(255, 255, 255, 0.25)',
+                        glassBorder: 'rgba(255, 255, 255, 0.5)',
+                        primary: '#ff9a9e',
+                        secondary: '#fad0c4',
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": {
+                                transform: "translate(0px, 0px) scale(1)",
+                            },
+                            "33%": {
+                                transform: "translate(30px, -50px) scale(1.1)",
+                            },
+                            "66%": {
+                                transform: "translate(-20px, 20px) scale(0.9)",
+                            },
+                            "100%": {
+                                transform: "translate(0px, 0px) scale(1)",
+                            },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-rose-100 to-fuchsia-100 min-h-screen font-sans text-gray-800 pt-20">
+
+    <!-- Background Shapes for Glassmorphism Effect -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-96 h-96 bg-fuchsia-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-6xl z-40 glass-panel rounded-full border border-white/40 px-6 py-3 shadow-lg transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                    <img src="assets/img/profile_picture.jpeg" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <span>Lilis Amelia</span>
+            </a>
+            <div class="relative">
+                <button class="relative p-2 hover:bg-white/30 rounded-full transition-colors group" onclick="toggleCart()">
+                    <i class="bi bi-cart3 text-2xl text-gray-800 group-hover:scale-110 transition-transform inline-block"></i>
+                    <span id="nav-cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">0</span>
+                </button>
+                <!-- Cart Tooltip -->
+                <div id="cart-tooltip" class="absolute top-full right-0 mt-4 w-48 bg-white rounded-xl shadow-xl p-3 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2 z-50 border border-gray-100">
+                    <div class="absolute -top-2 right-4 w-4 h-4 bg-white transform rotate-45 border-t border-l border-gray-100"></div>
+                    <p class="text-xs text-gray-600 text-center font-medium">Produk telah ditambahkan ke keranjang</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Center Notification -->
+    <div id="center-notification" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[60] bg-white/90 backdrop-blur-xl text-gray-800 px-8 py-6 rounded-3xl shadow-2xl transition-all duration-300 opacity-0 pointer-events-none scale-90 border border-white/50">
+        <div class="flex flex-col items-center gap-3 text-center">
+            <div id="notification-icon-container" class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl shadow-inner">
+                <i id="notification-icon" class="bi bi-bag-check-fill"></i>
+            </div>
+            <div>
+                <h3 id="notification-title" class="font-bold text-xl mb-1">Berhasil!</h3>
+                <p id="notification-message" class="text-sm text-gray-500">Barang ditambahkan ke keranjang</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 relative mt-20">
+        
+        <!-- Hero Profile Section -->
+        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl mb-12 relative overflow-hidden border border-white/50">
+            <div class="flex flex-row items-start gap-6 relative z-10">
+                <div class="relative flex-shrink-0">
+                    <div class="w-24 h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="assets/img/profile_picture.jpeg" alt="Lilis Amelia" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-2 right-2 bg-green-500 w-4 h-4 md:w-6 md:h-6 rounded-full border-2 md:border-4 border-white"></div>
+                </div>
+                <div class="text-left flex-grow pt-1 md:pt-2">
+                    <div class="flex flex-wrap justify-start gap-2 mb-2 md:mb-3">
+                        <span class="bg-white/40 backdrop-blur-sm px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-semibold text-purple-800 border border-purple-200">
+                            <i class="bi bi-mortarboard-fill mr-1"></i> Universitas Pamulang
+                        </span>
+                        <span class="bg-white/40 backdrop-blur-sm px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-semibold text-pink-800 border border-pink-200">
+                            NIM: 241010501940
+                        </span>
+                    </div>
+                    <h1 class="text-2xl md:text-5xl font-bold text-gray-800 mb-2 md:mb-3 tracking-tight">Lilis Amelia <span class="text-pink-500">.</span></h1>
+                    <p class="text-sm md:text-lg text-gray-600 mb-4 md:mb-6 max-w-2xl leading-relaxed">
+                        Selamat datang di ruang kreatif saya. Sebagai bagian dari tugas MK Aplikasi Komputer Bisnis, saya menghadirkan koleksi <span class="font-semibold text-gray-800">Lilin Aroma Premium</span> yang diracik dengan cinta. Setiap aroma didesain untuk mengubah suasana ruangan Anda menjadi lebih tenang, nyaman, dan penuh inspirasi.
+                    </p>
+                    <div class="flex flex-wrap justify-start gap-3">
+                        <a href="#products" class="px-5 py-2 md:px-8 md:py-3 text-sm md:text-base bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center">
+                            <i class="bi bi-bag-heart mr-2"></i> Belanja Sekarang
+                        </a>
+                        <a href="#contact" class="px-5 py-2 md:px-8 md:py-3 text-sm md:text-base bg-white/60 text-gray-800 rounded-full hover:bg-white/90 transition-all shadow-md hover:shadow-lg border border-white/60 backdrop-blur-sm">
+                            Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative circle behind -->
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Main Content: Products (8 cols) -->
+            <div class="lg:col-span-8" id="products">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Our Collection</h2>
+                    <div class="text-sm text-gray-500">Showing all items</div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.5">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="assets/img/1.jpeg" alt="Flower scented candle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" style="transform: translateZ(20px)">
+                            <div class="absolute top-3 right-3" style="transform: translateZ(30px)">
+                                <span class="bg-white/30 backdrop-blur-md text-gray-800 text-xs font-bold px-3 py-1 rounded-full border border-white/40 shadow-sm">Best Seller</span>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4" style="transform: translateZ(30px)">
+                                <span class="bg-white/20 backdrop-blur-md text-white text-xs px-2 py-1 rounded-full border border-white/30">Stok: 10</span>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-white/40 backdrop-blur-sm flex-grow flex flex-col justify-between" style="transform: translateZ(20px)">
+                            <div class="mb-4">
+                                <h3 class="font-bold text-xl mb-1">Flower scented candle</h3>
+                                <p class="text-gray-600 text-sm line-clamp-2">Wangi bunga segar yang menenangkan, membawa nuansa taman ke ruangan.</p>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="text-primary font-bold text-xl">Rp 18.000</p>
+                                <button class="btn-add-cart w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-lg hover:bg-gray-700 hover:scale-110 transition-all" data-name="Flower scented candle" data-price="18000" data-img="assets/img/1.jpeg">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.5">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="assets/img/2.jpeg" alt="Scented coffee candle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" style="transform: translateZ(20px)">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4" style="transform: translateZ(30px)">
+                                <span class="bg-white/20 backdrop-blur-md text-white text-xs px-2 py-1 rounded-full border border-white/30">Stok: 10</span>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-white/40 backdrop-blur-sm flex-grow flex flex-col justify-between" style="transform: translateZ(20px)">
+                            <div class="mb-4">
+                                <h3 class="font-bold text-xl mb-1">Scented coffee candle</h3>
+                                <p class="text-gray-600 text-sm line-clamp-2">Aroma kopi yang kuat dan energik, sempurna untuk memulai hari.</p>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="text-primary font-bold text-xl">Rp 19.000</p>
+                                <button class="btn-add-cart w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-lg hover:bg-gray-700 hover:scale-110 transition-all" data-name="Scented coffee candle" data-price="19000" data-img="assets/img/2.jpeg">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-white/80 backdrop-blur-sm border border-white/50 shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.5">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="assets/img/3.jpeg" alt="Lilin aroma cake" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" style="transform: translateZ(20px)">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4" style="transform: translateZ(30px)">
+                                <span class="bg-white/20 backdrop-blur-md text-white text-xs px-2 py-1 rounded-full border border-white/30">Stok: 10</span>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-white/40 backdrop-blur-sm flex-grow flex flex-col justify-between" style="transform: translateZ(20px)">
+                            <div class="mb-4">
+                                <h3 class="font-bold text-xl mb-1">Lilin aroma cake</h3>
+                                <p class="text-gray-600 text-sm line-clamp-2">Aroma kue manis yang lezat, cocok untuk menemani waktu santai Anda.</p>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <p class="text-primary font-bold text-xl">Rp 16.000</p>
+                                <button class="btn-add-cart w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-lg hover:bg-gray-700 hover:scale-110 transition-all" data-name="Lilin aroma cake" data-price="16000" data-img="assets/img/3.jpeg">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar: Links & Contact (4 cols) -->
+            <div class="lg:col-span-4 space-y-8">
+                
+                <!-- Ecommerce Links -->
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-lg border border-white/50">
+                    <h2 class="text-lg font-bold mb-4 text-gray-700 flex items-center">
+                        <i class="bi bi-shop mr-2"></i> Available On
+                    </h2>
+                    <div class="space-y-3">
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-700 mr-3 shadow-sm group-hover:scale-110 transition-transform overflow-hidden border border-gray-100">
+                                <img src="assets/img/web-icon.jpeg" alt="Website" class="w-full h-full object-cover">
+                            </div>
+                            <span class="font-medium flex-grow">Website</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-white mr-3 shadow-sm group-hover:scale-110 transition-transform overflow-hidden border border-gray-100">
+                                <img src="assets/img/ecommerce/Logo Tokopedia.png" alt="Tokopedia" class="w-full h-full object-contain p-1">
+                            </div>
+                            <span class="font-medium flex-grow">Tokopedia</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-white mr-3 shadow-sm group-hover:scale-110 transition-transform overflow-hidden border border-gray-100">
+                                <img src="assets/img/ecommerce/Logo Bukalapak.png" alt="Bukalapak" class="w-full h-full object-contain p-1">
+                            </div>
+                            <span class="font-medium flex-grow">Bukalapak</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-white mr-3 shadow-sm group-hover:scale-110 transition-transform overflow-hidden border border-gray-100">
+                                <img src="assets/img/ecommerce/Logo Lazada Baru 2019.png" alt="Lazada" class="w-full h-full object-contain p-1">
+                            </div>
+                            <span class="font-medium flex-grow">Lazada</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-white mr-3 shadow-sm group-hover:scale-110 transition-transform overflow-hidden border border-gray-100">
+                                <img src="assets/img/ecommerce/Logo BliBli Online Mall (PNG-2160p) - KoleksiLogo.com.png" alt="Blibli" class="w-full h-full object-contain p-1">
+                            </div>
+                            <span class="font-medium flex-grow">Blibli</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-lg border border-white/50" id="contact">
+                    <h2 class="text-lg font-bold mb-4 text-gray-700 flex items-center">
+                        <i class="bi bi-chat-dots mr-2"></i> Contact Us
+                    </h2>
+                    <div class="space-y-3">
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white mr-3 shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <span class="font-medium flex-grow">Whatsapp</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-btn flex items-center p-3 rounded-xl hover:bg-white/50 transition-all duration-300 group">
+                            <div class="w-10 h-10 rounded-full bg-[#0088cc] flex items-center justify-center text-white mr-3 shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="bi bi-telegram"></i>
+                            </div>
+                            <span class="font-medium flex-grow">Telegram</span>
+                            <i class="bi bi-arrow-right text-gray-400 group-hover:text-gray-700 transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-16 pb-8 border-t border-gray-200/50 pt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-center max-w-4xl mx-auto">
+                <div class="flex flex-col items-center">
+                    <h3 class="font-bold text-gray-800 mb-3">Alamat</h3>
+                    <a href="https://maps.app.goo.gl/3CdnoC8o21TAGQaz6" target="_blank" class="text-sm text-gray-600 hover:text-pink-600 transition-colors flex justify-center items-start gap-2 max-w-xs">
+                        <i class="bi bi-geo-alt-fill mt-1 flex-shrink-0"></i>
+                        <span>Jl. Suryakencana No.1, Pamulang Bar., Kec. Pamulang, Kota Tangerang Selatan, Banten 15417</span>
+                    </a>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h3 class="font-bold text-gray-800 mb-3">Kontak</h3>
+                    <div class="space-y-2 flex flex-col items-center">
+                        <a href="mailto:lilisamelia48@gmail.com" class="text-sm text-gray-600 hover:text-pink-600 transition-colors flex justify-center items-center gap-2">
+                            <i class="bi bi-envelope-fill"></i> lilisamelia48@gmail.com
+                        </a>
+                        <a href="https://wa.me/6282121239423" target="_blank" class="text-sm text-gray-600 hover:text-pink-600 transition-colors flex justify-center items-center gap-2">
+                            <i class="bi bi-whatsapp"></i> +62 821-2123-9423
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-gray-600 font-medium">© 2025 Lilis Amelia. All rights reserved.</p>
+            <p class="text-sm text-gray-500 mt-2">
+                MK: Aplikasi Komputer Bisnis <br>
+                <span class="font-semibold text-purple-700">Universitas Pamulang</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button (Mobile Only) -->
+    <div id="floating-cart" class="fixed bottom-6 right-6 z-50 md:hidden hidden">
+        <button class="bg-gray-900 text-white rounded-full p-4 shadow-2xl flex items-center space-x-2 hover:scale-110 transition-transform" onclick="toggleCart()">
+            <i class="bi bi-cart3 text-xl"></i>
+            <span id="cart-count" class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full absolute -top-1 -right-1">0</span>
+        </button>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute bottom-0 left-0 right-0 md:top-0 md:right-0 md:left-auto md:w-96 bg-white/90 backdrop-blur-xl h-[80vh] md:h-full rounded-t-3xl md:rounded-l-3xl shadow-2xl transform transition-transform duration-300 translate-y-full md:translate-x-full" id="cart-panel">
+            <div class="p-6 h-full flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold flex items-center"><i class="bi bi-cart3 mr-2"></i> Carts</h2>
+                    <button onclick="toggleCart()" class="p-2 hover:bg-gray-200 rounded-full transition-colors"><i class="bi bi-x-lg"></i></button>
+                </div>
+                
+                <div id="cart-items" class="flex-grow overflow-y-auto space-y-4 pr-2">
+                    <!-- Cart items will be injected here -->
+                    <div class="text-center text-gray-500 mt-10">Your cart is empty</div>
+                </div>
+
+                <div class="mt-6 border-t border-gray-200 pt-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-600">Sub Total</span>
+                        <span class="font-bold" id="cart-subtotal">Rp 0</span>
+                    </div>
+                    <div class="flex justify-between mb-4 text-xl font-bold">
+                        <span>Grand Total</span>
+                        <span id="cart-total">Rp 0</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="clearCart()" class="py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors font-medium">
+                            <i class="bi bi-trash mr-1"></i> Clear
+                        </button>
+                        <button onclick="showCheckout()" class="py-3 px-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium shadow-lg shadow-blue-600/30">
+                            Continue <i class="bi bi-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                    <button onclick="toggleCart()" class="w-full mt-3 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCheckout()"></div>
+        <div class="absolute bottom-0 left-0 right-0 md:top-0 md:right-0 md:left-auto md:w-96 bg-white/95 backdrop-blur-xl h-[90vh] md:h-full rounded-t-3xl md:rounded-l-3xl shadow-2xl transform transition-transform duration-300 translate-y-full md:translate-x-full" id="checkout-panel">
+            <div class="p-6 h-full flex flex-col overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold">Checkout</h2>
+                    <button onclick="toggleCheckout()" class="p-2 hover:bg-gray-200 rounded-full transition-colors"><i class="bi bi-x-lg"></i></button>
+                </div>
+
+                <form id="checkout-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Full Name" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+                        <input type="email" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="ex: name@example.com" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone (Optional)</label>
+                        <input type="tel" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="08 123 456 789">
+                    </div>
+
+                    <div class="pt-4">
+                        <h3 class="font-bold mb-3">Select Payment Method</h3>
+                        
+                        <div class="mb-3">
+                            <p class="text-sm font-medium text-gray-600 mb-2">QRIS</p>
+                            <label class="cursor-pointer block">
+                                <input type="radio" name="payment" class="peer sr-only" value="qris">
+                                <div class="p-3 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center">
+                                    <img src="assets/img/payment/GKL1_Qris - koleksilogo.com.png" alt="QRIS" class="h-8 object-contain">
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="text-sm font-medium text-gray-600 mb-2">Virtual Account</p>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="cursor-pointer block">
+                                    <input type="radio" name="payment" class="peer sr-only" value="bni">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                        <img src="assets/img/payment/Logo BNI - Dianisa.com.png" alt="BNI" class="h-6 object-contain">
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer block">
+                                    <input type="radio" name="payment" class="peer sr-only" value="bri">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                        <img src="assets/img/payment/Logo BRI - Dianisa.com.png" alt="BRI" class="h-6 object-contain">
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer block">
+                                    <input type="radio" name="payment" class="peer sr-only" value="mandiri">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                        <img src="assets/img/payment/Logo Mandiri - Dianisa.com.png" alt="Mandiri" class="h-6 object-contain">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="text-sm font-medium text-gray-600 mb-2">E-Wallet</p>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="cursor-pointer block">
+                                    <input type="radio" name="payment" class="peer sr-only" value="ovo">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                        <img src="assets/img/payment/Logo_ovo_purple.svg.png" alt="OVO" class="h-6 object-contain">
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer block">
+                                    <input type="radio" name="payment" class="peer sr-only" value="dana">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                        <img src="assets/img/payment/Dana_logo.png" alt="DANA" class="h-6 object-contain">
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer block">
+                                    <input type="radio" name="payment" class="peer sr-only" value="linkaja">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                        <img src="assets/img/payment/LinkAja.svg.png" alt="LinkAja" class="h-6 object-contain">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border border-dashed border-gray-300 text-center cursor-pointer hover:bg-gray-100 transition-colors">
+                        <i class="bi bi-ticket-perforated mr-2"></i> Use Voucher Code
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-4 mt-4">
+                        <h3 class="font-bold mb-3">Summary</h3>
+                        <div class="flex justify-between mb-1 text-sm">
+                            <span class="text-gray-600">Sub Total</span>
+                            <span id="checkout-subtotal">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between mb-1 text-sm">
+                            <span class="text-gray-600">Discount</span>
+                            <span>Rp 0</span>
+                        </div>
+                        <div class="flex justify-between mb-1 text-sm">
+                            <span class="text-gray-600">Payment Fee</span>
+                            <span>Rp 0</span>
+                        </div>
+                        <div class="flex justify-between mt-3 text-lg font-bold">
+                            <span>Grand Total</span>
+                            <span id="checkout-total">Rp 0</span>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                    <button onclick="toggleCheckout()" class="py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors font-medium">
+                        <i class="bi bi-arrow-left mr-1"></i> Back
+                    </button>
+                    <button type="button" onclick="processPayment()" class="py-3 px-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium shadow-lg shadow-blue-600/30">
+                        <i class="bi bi-credit-card mr-1"></i> Make Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+        // Manual initialization for Vanilla Tilt if auto-init fails
+        document.addEventListener("DOMContentLoaded", function() {
+            VanillaTilt.init(document.querySelectorAll(".glass-card"), {
+                max: 15,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.5,
+            });
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
