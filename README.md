@@ -1,72 +1,90 @@
-# Lilin Aroma - E-Commerce Landing Page
+# Lilin Aroma - E-Commerce Website
 
-A modern, responsive e-commerce landing page for **Lilin Aroma**, designed to showcase and sell aromatic candles. This project features a beautiful pink/pastel theme, interactive 3D product cards, and a functional shopping cart system.
+Website e-commerce modern dan responsif untuk **Lilin Aroma**, dirancang untuk menampilkan dan menjual produk lilin aromaterapi. Proyek ini memiliki tema pink/pastel yang estetis, kartu produk interaktif 3D, sistem keranjang belanja fungsional, dan fitur kode voucher.
 
-## ✨ Features
+## ✨ Fitur Utama
 
-- **Responsive Design**: Fully responsive layout that works seamlessly on desktop, tablet, and mobile devices.
-- **Interactive UI**:
-  - **3D Tilt Effect**: Product cards feature a premium 3D tilt effect using `vanilla-tilt.js`.
-  - **Glassmorphism**: Modern glass-effect styling on buttons and cards.
-  - **Smooth Animations**: Transitions for hover states, modals, and notifications.
-- **Shopping Cart System**:
-  - Add items to cart with instant visual feedback.
-  - Real-time subtotal and total calculation.
-  - Quantity management (increase/decrease).
-  - Floating cart button for mobile users.
-- **Checkout Process**:
-  - User-friendly checkout modal.
-  - Form validation.
-  - Custom "Payment Success" notification (no browser alerts).
-- **E-Commerce Integration**: Direct links to major marketplaces (Tokopedia, Bukalapak, Lazada, Blibli).
+- **Multi-Halaman**: Terdiri dari halaman Beranda, Tentang Saya, dan Kontak.
+- **Desain Responsif**: Tampilan yang menyesuaikan dengan baik di desktop, tablet, dan ponsel.
+- **Antarmuka Interaktif**:
+  - **Efek 3D Tilt**: Kartu produk memiliki efek miring 3D menggunakan `vanilla-tilt.js`.
+  - **Glassmorphism**: Gaya desain kaca modern pada elemen UI.
+  - **Animasi Halus**: Transisi yang mulus untuk hover, modal, dan notifikasi.
+- **Sistem Keranjang Belanja**:
+  - Tambah produk ke keranjang dengan notifikasi real-time.
+  - Perhitungan subtotal dan total otomatis.
+  - Manajemen jumlah barang (tambah/kurang).
+- **Fitur Checkout Lengkap**:
+  - **Kode Voucher**: Mendukung kode diskon untuk potongan 20%.
+  - **Notifikasi Kustom**: Notifikasi "Pembayaran Berhasil" yang elegan di tengah layar.
+  - **Pilihan Pembayaran**: Simulasi pilihan Bank dan E-Wallet.
 
-## 🛠️ Technologies Used
+## 🎟️ Kode Voucher
 
-- **HTML5**: Semantic markup structure.
-- **Tailwind CSS**: Utility-first CSS framework for styling (loaded via CDN).
-- **JavaScript (ES6+)**: Core logic for the cart, notifications, and DOM manipulation.
-- **Vanilla-tilt.js**: Library for the 3D tilt interaction on product cards.
-- **Bootstrap Icons**: Iconography.
-- **Google Fonts**: Typography (Poppins).
+Gunakan kode berikut saat checkout untuk mendapatkan diskon **20%**:
 
-## 🚀 Getting Started
+| Kode Voucher | Diskon | Keterangan |
+| :--- | :---: | :--- |
+| `zura` | 20% | Kode Spesial |
+| `musgun` | 20% | Kode Spesial |
+| `Amell` | 20% | Kode Spesial |
+| `ramell` | 20% | Kode Spesial |
+| `Lapiww` | 20% | Kode Spesial |
+| `kapiww` | 20% | Kode Spesial |
+- **Halaman Kontak**: Formulir kontak interaktif dan informasi lokasi/sosial media lengkap.
 
-Since this is a static web project, you don't need any complex build tools or package managers to run it.
+## 🛠️ Teknologi yang Digunakan
 
-1.  **Clone the repository**
+- **HTML5**: Struktur semantik halaman web.
+- **Tailwind CSS**: Framework CSS utility-first untuk styling (via CDN).
+- **JavaScript (ES6+)**: Logika untuk keranjang, voucher, notifikasi, dan interaksi DOM.
+- **Vanilla-tilt.js**: Library untuk efek 3D pada kartu produk.
+- **Bootstrap Icons**: Ikon vektor.
+- **Google Fonts**: Tipografi (Poppins).
+
+## 🚀 Cara Menjalankan
+
+Karena ini adalah proyek web statis, Anda tidak memerlukan tools build yang rumit.
+
+1.  **Clone repositori**
     ```bash
     git clone https://github.com/username/lilin-aroma.git
     ```
 
-2.  **Open the project**
-    Simply open the `index.html` file in your preferred web browser.
+2.  **Buka Proyek**
+    Cukup buka file `index.html` di browser web favorit Anda.
 
-    OR
+    ATAU
 
-    If you are using VS Code, you can use the "Live Server" extension to run it locally.
+    Jika menggunakan VS Code, disarankan menggunakan ekstensi "Live Server" untuk pengalaman terbaik.
 
-## 📂 Project Structure
+## 📂 Struktur Proyek
 
 ```
 lilin-aroma/
 ├── assets/
+│   ├── css/
+│   │   └── style.css     # Custom CSS tambahan
 │   ├── img/
-│   │   ├── ecommerce/    # Marketplace logos
-│   │   ├── payment/      # Payment method icons
-│   │   ├── products/     # Product images
-│   │   └── web-icon.jpeg # Favicon
+│   │   ├── ecommerce/    # Logo marketplace (Tokopedia, dll)
+│   │   ├── payment/      # Ikon metode pembayaran
+│   │   ├── products/     # Foto produk lilin
+│   │   └── web-icon.jpeg # Favicon website
 │   └── js/
-│       └── main.js       # Application logic
-├── index.html            # Main entry point
-└── README.md             # Project documentation
+│       └── main.js       # Logika aplikasi (Cart, Voucher, dll)
+├── about.html            # Halaman Tentang Saya
+├── contact.html          # Halaman Kontak
+├── index.html            # Halaman Utama (Beranda)
+└── README.md             # Dokumentasi Proyek
 ```
 
-## 👤 Author
+## 👤 Penulis
 
 **Lilis Amelia**
-- Project for: Aplikasi Komputer Bisnis
-- Universitas Pamulang
+- **NIM**: 241010501940
+- **Mata Kuliah**: Aplikasi Komputer Bisnis
+- **Universitas**: Universitas Pamulang
 
-## 📄 License
+## 📄 Lisensi
 
-This project is created for educational purposes. All rights reserved.
+Proyek ini dibuat untuk tujuan pendidikan. Hak cipta dilindungi undang-undang.
