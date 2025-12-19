@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Saya - Lilis Amelia</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon & Open Graph -->
+    <link rel="icon" type="image/jpeg" href="assets/img/web-icon.jpeg">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        glass: 'rgba(255, 255, 255, 0.25)',
+                        glassBorder: 'rgba(255, 255, 255, 0.5)',
+                        primary: '#ff9a9e',
+                        secondary: '#fad0c4',
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": {
+                                transform: "translate(0px, 0px) scale(1)",
+                            },
+                            "33%": {
+                                transform: "translate(30px, -50px) scale(1.1)",
+                            },
+                            "66%": {
+                                transform: "translate(-20px, 20px) scale(0.9)",
+                            },
+                            "100%": {
+                                transform: "translate(0px, 0px) scale(1)",
+                            },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-rose-100 to-fuchsia-100 min-h-screen font-sans text-gray-800 pt-24">
+
+    <!-- Background Shapes -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-96 h-96 bg-fuchsia-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-6xl z-40 glass-panel rounded-full border border-white/40 px-6 py-3 shadow-lg transition-all duration-300 bg-white/80 backdrop-blur-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                    <img src="assets/img/profile_picture.jpeg" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <span>Lilis Amelia</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">Beranda</a>
+                <a href="about.html" class="text-pink-600 font-bold transition-colors">Tentang</a>
+                <a href="contact.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">Kontak</a>
+            </div>
+
+            <div class="relative flex items-center gap-4">
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-2xl text-gray-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <button class="relative p-2 hover:bg-white/30 rounded-full transition-colors group" onclick="window.location.href='index.html#cart-modal'">
+                    <i class="bi bi-cart3 text-2xl text-gray-800 group-hover:scale-110 transition-transform inline-block"></i>
+                    <span id="nav-cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">0</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl rounded-2xl mt-2 p-4 shadow-xl border border-white/50 flex flex-col gap-3 text-center">
+            <a href="index.html" class="py-2 text-gray-600 hover:text-pink-600 font-medium">Beranda</a>
+            <a href="about.html" class="py-2 text-pink-600 font-bold bg-pink-50 rounded-xl">Tentang</a>
+            <a href="contact.html" class="py-2 text-gray-600 hover:text-pink-600 font-medium">Kontak</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        
+        <!-- About Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Tentang <span class="text-pink-500">Saya</span></h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Mengenal lebih dekat sosok di balik Lilin Aroma Premium yang menghangatkan suasana Anda.</p>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-xl mb-12 border border-white/50">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-8 border-white shadow-2xl flex-shrink-0">
+                    <img src="assets/img/profile_picture.jpeg" alt="Lilis Amelia" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Lilis Amelia</h2>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+                        <span class="bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-bold">
+                            <i class="bi bi-mortarboard-fill mr-2"></i>Mahasiswi Universitas Pamulang
+                        </span>
+                        <span class="bg-pink-100 text-pink-700 px-4 py-1.5 rounded-full text-sm font-bold">
+                            NIM: 241010501940
+                        </span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        Halo! Saya adalah seorang mahasiswi yang memiliki passion besar dalam dunia bisnis dan kreativitas. Proyek "Lilin Aroma" ini bermula dari tugas mata kuliah Aplikasi Komputer Bisnis, namun berkembang menjadi sebuah wujud kecintaan saya terhadap estetika dan ketenangan.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Saya percaya bahwa aroma memiliki kekuatan untuk mengubah mood dan menciptakan kenangan. Melalui produk ini, saya ingin membagikan sedikit kebahagiaan dan ketenangan ke dalam setiap sudut ruangan Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision & Mission -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white/70 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-white/50 hover:transform hover:-translate-y-2 transition-all duration-300">
+                <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600 text-2xl mb-6 shadow-sm">
+                    <i class="bi bi-eye-fill"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Visi</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Menjadi brand lilin aroma pilihan utama yang tidak hanya menawarkan keharuman, tetapi juga pengalaman relaksasi yang estetik dan terjangkau bagi semua kalangan.
+                </p>
+            </div>
+            <div class="bg-white/70 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-white/50 hover:transform hover:-translate-y-2 transition-all duration-300">
+                <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 text-2xl mb-6 shadow-sm">
+                    <i class="bi bi-rocket-takeoff-fill"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Misi</h3>
+                <ul class="space-y-3 text-gray-600">
+                    <li class="flex items-start gap-3">
+                        <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+                        <span>Menghadirkan produk berkualitas tinggi dengan bahan aman.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+                        <span>Memberikan pelayanan pelanggan yang ramah dan responsif.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="bi bi-check-circle-fill text-green-500 mt-1"></i>
+                        <span>Terus berinovasi dengan varian aroma yang unik dan menenangkan.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-white rounded-t-3xl shadow-lg p-10 mt-12 border-t border-gray-100">
+        <div class="text-center">
+            <p class="text-sm text-gray-600 font-medium">© 2025 Lilis Amelia. All rights reserved.</p>
+            <p class="text-sm text-gray-500 mt-2">
+                MK: Aplikasi Komputer Bisnis <br>
+                <span class="font-semibold text-purple-700">Universitas Pamulang</span>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
