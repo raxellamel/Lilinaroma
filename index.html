@@ -75,7 +75,20 @@
                 </div>
                 <span>Lilis Amelia</span>
             </a>
-            <div class="relative">
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-pink-600 font-bold transition-colors">Beranda</a>
+                <a href="about.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">Tentang</a>
+                <a href="contact.html" class="text-gray-600 hover:text-pink-600 font-medium transition-colors">Kontak</a>
+            </div>
+
+            <div class="relative flex items-center gap-4">
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-2xl text-gray-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <i class="bi bi-list"></i>
+                </button>
+
                 <button class="relative p-2 hover:bg-white/30 rounded-full transition-colors group" onclick="toggleCart()">
                     <i class="bi bi-cart3 text-2xl text-gray-800 group-hover:scale-110 transition-transform inline-block"></i>
                     <span id="nav-cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">0</span>
@@ -86,6 +99,13 @@
                     <p class="text-xs text-gray-600 text-center font-medium">Produk telah ditambahkan ke keranjang</p>
                 </div>
             </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl rounded-2xl mt-2 p-4 shadow-xl border border-white/50 flex flex-col gap-3 text-center">
+            <a href="index.html" class="py-2 text-pink-600 font-bold bg-pink-50 rounded-xl">Beranda</a>
+            <a href="about.html" class="py-2 text-gray-600 hover:text-pink-600 font-medium">Tentang</a>
+            <a href="contact.html" class="py-2 text-gray-600 hover:text-pink-600 font-medium">Kontak</a>
         </div>
     </nav>
 
@@ -105,32 +125,41 @@
     <div class="container mx-auto px-4 py-8 relative mt-20">
         
         <!-- Hero Profile Section -->
-        <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl mb-12 relative overflow-hidden border border-white/50">
-            <div class="flex flex-row items-start gap-6 relative z-10">
-                <div class="relative flex-shrink-0">
-                    <div class="w-24 h-24 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+        <div class="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-xl mb-12 relative overflow-hidden border border-white/50">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 relative z-10">
+                
+                <!-- Profile Image -->
+                <div class="relative flex-shrink-0 group">
+                    <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl transition-transform duration-500 group-hover:scale-105">
                         <img src="assets/img/profile_picture.jpeg" alt="Lilis Amelia" class="w-full h-full object-cover">
                     </div>
-                    <div class="absolute bottom-2 right-2 bg-green-500 w-4 h-4 md:w-6 md:h-6 rounded-full border-2 md:border-4 border-white"></div>
+                    <div class="absolute bottom-3 right-3 bg-green-500 w-6 h-6 md:w-8 md:h-8 rounded-full border-4 border-white shadow-sm" title="Online"></div>
                 </div>
-                <div class="text-left flex-grow pt-1 md:pt-2">
-                    <div class="flex flex-wrap justify-start gap-2 mb-2 md:mb-3">
-                        <span class="bg-white/40 backdrop-blur-sm px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-semibold text-purple-800 border border-purple-200">
+
+                <!-- Content -->
+                <div class="text-center md:text-left flex-grow pt-2">
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-4">
+                        <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs font-bold border border-purple-100 shadow-sm">
                             <i class="bi bi-mortarboard-fill mr-1"></i> Universitas Pamulang
                         </span>
-                        <span class="bg-white/40 backdrop-blur-sm px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-semibold text-pink-800 border border-pink-200">
+                        <span class="bg-pink-50 text-pink-700 px-3 py-1 rounded-full text-xs font-bold border border-pink-100 shadow-sm">
                             NIM: 241010501940
                         </span>
                     </div>
-                    <h1 class="text-2xl md:text-5xl font-bold text-gray-800 mb-2 md:mb-3 tracking-tight">Lilis Amelia <span class="text-pink-500">.</span></h1>
-                    <p class="text-sm md:text-lg text-gray-600 mb-4 md:mb-6 max-w-2xl leading-relaxed">
-                        Selamat datang di ruang kreatif saya. Sebagai bagian dari tugas MK Aplikasi Komputer Bisnis, saya menghadirkan koleksi <span class="font-semibold text-gray-800">Lilin Aroma Premium</span> yang diracik dengan cinta. Setiap aroma didesain untuk mengubah suasana ruangan Anda menjadi lebih tenang, nyaman, dan penuh inspirasi.
+                    
+                    <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4 tracking-tight leading-tight">
+                        Hi, I'm Lilis Amelia <span class="text-pink-500 animate-pulse">.</span>
+                    </h1>
+                    
+                    <p class="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-3xl mx-auto md:mx-0">
+                        Selamat datang di ruang kreatif saya. Sebagai bagian dari tugas MK Aplikasi Komputer Bisnis, saya menghadirkan koleksi <span class="font-semibold text-gray-900">Lilin Aroma Premium</span>. Setiap aroma diracik untuk menciptakan ketenangan dan inspirasi di ruangan Anda.
                     </p>
-                    <div class="flex flex-wrap justify-start gap-3">
-                        <a href="#products" class="px-5 py-2 md:px-8 md:py-3 text-sm md:text-base bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center">
-                            <i class="bi bi-bag-heart mr-2"></i> Belanja Sekarang
+                    
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#products" class="px-8 py-3 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2">
+                            <i class="bi bi-bag-heart"></i> Belanja Sekarang
                         </a>
-                        <a href="#contact" class="px-5 py-2 md:px-8 md:py-3 text-sm md:text-base bg-white/60 text-gray-800 rounded-full hover:bg-white/90 transition-all shadow-md hover:shadow-lg border border-white/60 backdrop-blur-sm">
+                        <a href="#contact" class="px-8 py-3 bg-white text-gray-800 rounded-xl font-medium hover:bg-gray-50 transition-all shadow-md hover:shadow-lg border border-gray-200 flex items-center gap-2">
                             Hubungi Saya
                         </a>
                     </div>
@@ -295,33 +324,14 @@
         </div>
 
         <!-- Footer -->
-        <div class="text-center mt-16 pb-8 border-t border-gray-200/50 pt-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-center max-w-4xl mx-auto">
-                <div class="flex flex-col items-center">
-                    <h3 class="font-bold text-gray-800 mb-3">Alamat</h3>
-                    <a href="https://maps.app.goo.gl/3CdnoC8o21TAGQaz6" target="_blank" class="text-sm text-gray-600 hover:text-pink-600 transition-colors flex justify-center items-start gap-2 max-w-xs">
-                        <i class="bi bi-geo-alt-fill mt-1 flex-shrink-0"></i>
-                        <span>Jl. Suryakencana No.1, Pamulang Bar., Kec. Pamulang, Kota Tangerang Selatan, Banten 15417</span>
-                    </a>
-                </div>
-                <div class="flex flex-col items-center">
-                    <h3 class="font-bold text-gray-800 mb-3">Kontak</h3>
-                    <div class="space-y-2 flex flex-col items-center">
-                        <a href="mailto:lilisamelia48@gmail.com" class="text-sm text-gray-600 hover:text-pink-600 transition-colors flex justify-center items-center gap-2">
-                            <i class="bi bi-envelope-fill"></i> lilisamelia48@gmail.com
-                        </a>
-                        <a href="https://wa.me/6282121239423" target="_blank" class="text-sm text-gray-600 hover:text-pink-600 transition-colors flex justify-center items-center gap-2">
-                            <i class="bi bi-whatsapp"></i> +62 821-2123-9423
-                        </a>
-                    </div>
-                </div>
+        <div class="bg-white rounded-3xl shadow-lg p-10 mt-16 border border-gray-100">
+            <div class="text-center">
+                <p class="text-sm text-gray-600 font-medium">© 2025 Lilis Amelia. All rights reserved.</p>
+                <p class="text-sm text-gray-500 mt-2">
+                    MK: Aplikasi Komputer Bisnis <br>
+                    <span class="font-semibold text-purple-700">Universitas Pamulang</span>
+                </p>
             </div>
-            
-            <p class="text-sm text-gray-600 font-medium">© 2025 Lilis Amelia. All rights reserved.</p>
-            <p class="text-sm text-gray-500 mt-2">
-                MK: Aplikasi Komputer Bisnis <br>
-                <span class="font-semibold text-purple-700">Universitas Pamulang</span>
-            </p>
         </div>
     </div>
 
