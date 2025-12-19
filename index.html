@@ -156,7 +156,7 @@
                     </p>
                     
                     <div class="flex flex-wrap justify-center gap-4">
-                        <a href="#products" class="px-8 py-3 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2">
+                        <a href="#products" class="px-8 py-3 bg-pink-600 text-white rounded-xl font-medium hover:bg-pink-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2">
                             <i class="bi bi-bag-heart"></i> Belanja Sekarang
                         </a>
                         <a href="#contact" class="px-8 py-3 bg-white text-gray-800 rounded-xl font-medium hover:bg-gray-50 transition-all shadow-md hover:shadow-lg border border-gray-200 flex items-center gap-2">
@@ -174,7 +174,7 @@
             <!-- Main Content: Products (8 cols) -->
             <div class="lg:col-span-8" id="products">
                 <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">Our Collection</h2>
+                    <h2 class="text-2xl font-bold text-gray-800">Our <span class="text-pink-600">Collection</span></h2>
                     <div class="text-sm text-gray-500">Showing all items</div>
                 </div>
 
@@ -196,8 +196,8 @@
                                 <p class="text-gray-600 text-sm line-clamp-2">Wangi bunga segar yang menenangkan, membawa nuansa taman ke ruangan.</p>
                             </div>
                             <div class="flex justify-between items-center">
-                                <p class="text-primary font-bold text-xl">Rp 18.000</p>
-                                <button class="btn-add-cart w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-lg hover:bg-gray-700 hover:scale-110 transition-all" data-name="Flower scented candle" data-price="18000" data-img="assets/img/1.jpeg">
+                                <p class="text-pink-600 font-bold text-xl">Rp 18.000</p>
+                                <button class="btn-add-cart w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-lg hover:bg-pink-700 hover:scale-110 transition-all" data-name="Flower scented candle" data-price="18000" data-img="assets/img/1.jpeg">
                                     <i class="bi bi-plus-lg"></i>
                                 </button>
                             </div>
@@ -218,8 +218,8 @@
                                 <p class="text-gray-600 text-sm line-clamp-2">Aroma kopi yang kuat dan energik, sempurna untuk memulai hari.</p>
                             </div>
                             <div class="flex justify-between items-center">
-                                <p class="text-primary font-bold text-xl">Rp 19.000</p>
-                                <button class="btn-add-cart w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-lg hover:bg-gray-700 hover:scale-110 transition-all" data-name="Scented coffee candle" data-price="19000" data-img="assets/img/2.jpeg">
+                                <p class="text-pink-600 font-bold text-xl">Rp 19.000</p>
+                                <button class="btn-add-cart w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-lg hover:bg-pink-700 hover:scale-110 transition-all" data-name="Scented coffee candle" data-price="19000" data-img="assets/img/2.jpeg">
                                     <i class="bi bi-plus-lg"></i>
                                 </button>
                             </div>
@@ -240,8 +240,8 @@
                                 <p class="text-gray-600 text-sm line-clamp-2">Aroma kue manis yang lezat, cocok untuk menemani waktu santai Anda.</p>
                             </div>
                             <div class="flex justify-between items-center">
-                                <p class="text-primary font-bold text-xl">Rp 16.000</p>
-                                <button class="btn-add-cart w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center shadow-lg hover:bg-gray-700 hover:scale-110 transition-all" data-name="Lilin aroma cake" data-price="16000" data-img="assets/img/3.jpeg">
+                                <p class="text-pink-600 font-bold text-xl">Rp 16.000</p>
+                                <button class="btn-add-cart w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-lg hover:bg-pink-700 hover:scale-110 transition-all" data-name="Lilin aroma cake" data-price="16000" data-img="assets/img/3.jpeg">
                                     <i class="bi bi-plus-lg"></i>
                                 </button>
                             </div>
@@ -337,7 +337,7 @@
 
     <!-- Floating Cart Button (Mobile Only) -->
     <div id="floating-cart" class="fixed bottom-6 right-6 z-50 md:hidden hidden">
-        <button class="bg-gray-900 text-white rounded-full p-4 shadow-2xl flex items-center space-x-2 hover:scale-110 transition-transform" onclick="toggleCart()">
+        <button class="bg-pink-600 text-white rounded-full p-4 shadow-2xl flex items-center space-x-2 hover:scale-110 transition-transform" onclick="toggleCart()">
             <i class="bi bi-cart3 text-xl"></i>
             <span id="cart-count" class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full absolute -top-1 -right-1">0</span>
         </button>
@@ -371,7 +371,7 @@
                         <button onclick="clearCart()" class="py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors font-medium">
                             <i class="bi bi-trash mr-1"></i> Clear
                         </button>
-                        <button onclick="showCheckout()" class="py-3 px-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium shadow-lg shadow-blue-600/30">
+                        <button onclick="showCheckout()" class="py-3 px-4 bg-pink-600 text-white rounded-xl hover:bg-pink-700 transition-colors font-medium shadow-lg shadow-pink-600/30">
                             Continue <i class="bi bi-arrow-right ml-1"></i>
                         </button>
                     </div>
@@ -396,15 +396,15 @@
                 <form id="checkout-form" class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Full Name" required>
+                        <input type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all" placeholder="Full Name" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
-                        <input type="email" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="ex: name@example.com" required>
+                        <input type="email" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all" placeholder="ex: name@example.com" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Phone (Optional)</label>
-                        <input type="tel" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="08 123 456 789">
+                        <input type="tel" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all" placeholder="08 123 456 789">
                     </div>
 
                     <div class="pt-4">
@@ -414,7 +414,7 @@
                             <p class="text-sm font-medium text-gray-600 mb-2">QRIS</p>
                             <label class="cursor-pointer block">
                                 <input type="radio" name="payment" class="peer sr-only" value="qris">
-                                <div class="p-3 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center">
+                                <div class="p-3 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center">
                                     <img src="assets/img/payment/GKL1_Qris - koleksilogo.com.png" alt="QRIS" class="h-8 object-contain">
                                 </div>
                             </label>
@@ -425,19 +425,19 @@
                             <div class="grid grid-cols-3 gap-2">
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="payment" class="peer sr-only" value="bni">
-                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
                                         <img src="assets/img/payment/Logo BNI - Dianisa.com.png" alt="BNI" class="h-6 object-contain">
                                     </div>
                                 </label>
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="payment" class="peer sr-only" value="bri">
-                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
                                         <img src="assets/img/payment/Logo BRI - Dianisa.com.png" alt="BRI" class="h-6 object-contain">
                                     </div>
                                 </label>
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="payment" class="peer sr-only" value="mandiri">
-                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
                                         <img src="assets/img/payment/Logo Mandiri - Dianisa.com.png" alt="Mandiri" class="h-6 object-contain">
                                     </div>
                                 </label>
@@ -449,19 +449,19 @@
                             <div class="grid grid-cols-3 gap-2">
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="payment" class="peer sr-only" value="ovo">
-                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
                                         <img src="assets/img/payment/Logo_ovo_purple.svg.png" alt="OVO" class="h-6 object-contain">
                                     </div>
                                 </label>
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="payment" class="peer sr-only" value="dana">
-                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
                                         <img src="assets/img/payment/Dana_logo.png" alt="DANA" class="h-6 object-contain">
                                     </div>
                                 </label>
                                 <label class="cursor-pointer block">
                                     <input type="radio" name="payment" class="peer sr-only" value="linkaja">
-                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
+                                    <div class="p-2 border border-gray-200 rounded-xl peer-checked:border-pink-500 peer-checked:bg-pink-50 hover:bg-gray-50 transition-all flex justify-center items-center h-12">
                                         <img src="assets/img/payment/LinkAja.svg.png" alt="LinkAja" class="h-6 object-contain">
                                     </div>
                                 </label>
@@ -473,7 +473,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Voucher Code</label>
                         <div class="flex gap-2">
                             <input type="text" id="voucher-input" class="flex-grow px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all" placeholder="Enter code">
-                            <button type="button" onclick="applyVoucher()" id="btn-apply-voucher" class="px-4 py-2 bg-gray-800 text-white rounded-xl hover:bg-gray-900 transition-colors font-medium">
+                            <button type="button" onclick="applyVoucher()" id="btn-apply-voucher" class="px-4 py-2 bg-pink-600 text-white rounded-xl hover:bg-pink-700 transition-colors font-medium">
                                 Apply
                             </button>
                         </div>
@@ -505,7 +505,7 @@
                     <button onclick="toggleCheckout()" class="py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors font-medium">
                         <i class="bi bi-arrow-left mr-1"></i> Back
                     </button>
-                    <button type="button" onclick="processPayment()" class="py-3 px-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium shadow-lg shadow-blue-600/30">
+                    <button type="button" onclick="processPayment()" class="py-3 px-4 bg-pink-600 text-white rounded-xl hover:bg-pink-700 transition-colors font-medium shadow-lg shadow-pink-600/30">
                         <i class="bi bi-credit-card mr-1"></i> Make Payment
                     </button>
                 </div>
