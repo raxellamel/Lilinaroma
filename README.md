@@ -88,3 +88,10 @@ lilin-aroma/
 ## 📄 Lisensi
 
 Proyek ini dibuat untuk tujuan pendidikan. Hak cipta dilindungi undang-undang.
+
+## ⚠️ Catatan Penting (Disclaimer)
+
+Website ini adalah **proyek demonstrasi** untuk tugas kuliah.
+- **Fitur Pembayaran**: Tidak ada transaksi uang sungguhan yang diproses. Tombol pembayaran hanya menampilkan simulasi sukses.
+- **Fitur Kontak**: Formulir "Kirim Pesan" hanya menampilkan notifikasi sukses dan tidak benar-benar mengirim email atau pesan ke server manapun.
+- **Data Pengguna**: Data yang dimasukkan (Nama, Email, dll) tidak disimpan ke database.
